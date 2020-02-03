@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yfli03.github.io/note0x01/</loc>
+    
+    <lastmod>2020-02-03T11:37:53.179Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yfli03.github.io/diary01/</loc>
     
-    <lastmod>2020-02-03T11:04:14.585Z</lastmod>
+    <lastmod>2020-02-03T11:37:41.106Z</lastmod>
     
   </url>
   
@@ -47,13 +54,6 @@
     <loc>http://yfli03.github.io/Thoughts01/</loc>
     
     <lastmod>2020-02-03T08:56:21.406Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yfli03.github.io/note0x01/</loc>
-    
-    <lastmod>2020-02-03T08:55:26.942Z</lastmod>
     
   </url>
   
@@ -194,13 +194,6 @@
     <loc>http://yfli03.github.io/tags/index.html</loc>
     
     <lastmod>2018-10-01T12:55:28.790Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yfli03.github.io/diary01.html</loc>
-    
-    <lastmod>2018-09-23T06:16:34.820Z</lastmod>
     
   </url>
   
