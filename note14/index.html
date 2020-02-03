@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/180x180.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo_s.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="算法竞赛,模板,Luogu,持久化,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="通过可持久化线段树实现的区间第K大来源/网址：luogu">
+<meta name="keywords" content="算法竞赛,模板,Luogu,持久化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记14-主席树「模板 &#x2F; 洛谷 P3834」">
+<meta property="og:url" content="http://yfli03.github.io/note14/index.html">
+<meta property="og:site_name" content="YfLi&#39;s blog">
+<meta property="og:description" content="通过可持久化线段树实现的区间第K大来源/网址：luogu">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-03T08:51:54.294Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="笔记14-主席树「模板 &#x2F; 洛谷 P3834」">
+<meta name="twitter:description" content="通过可持久化线段树实现的区间第K大来源/网址：luogu">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yfli03.github.io/note14/">
+
+
+
+
+
+  <title>笔记14-主席树「模板 / 洛谷 P3834」 | YfLi's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YfLi's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">退役oi选手</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yfli03.github.io/note14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YfLi">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://gitee.com/yfli03/YfLi03.github.io/raw/master/Pic/tx3.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YfLi's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">笔记14-主席树「模板 / 洛谷 P3834」</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-12T00:00:00+08:00">
+                2018-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/note14/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/note14/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>通过可持久化线段树实现的区间第K大<br>来源/网址：<a href="https://www.luogu.org/problemnew/show/P3834" target="_blank" rel="noopener">luogu</a></p>
+<a id="more"></a>
+<hr>
+<h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><h1 id="可持久化线段树"><a href="#可持久化线段树" class="headerlink" title="可持久化线段树"></a>可持久化线段树</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>查询区间<code>(l,r)</code>内第k大的数字。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>可持久化线段树大概就是每次修改从顶开始的一条链；不用修改的子节点就继续引用原来的；要修改的就新建节点。注意每次是在上一次修改的基础上继续的；并且需要一个 <code>rt[0]</code> 为全0初始树。</p>
+<p>这道题思维比较巧妙：</p>
+<p>先用 <code>sort + unique</code> 进行离散化操作；然后以离散化后的元素作为底层（接下来大概就是用线段树按顺序记录每个数字出现的次数）。</p>
+<p>关键来了：以不同的区间建立不同的版本，及1..1为1号，1..2为2号，1..7为7号，以此类推。 查询区间 <code>l..r</code> 需要查询两个版本：<code>ver[l-1]</code>与<code>ver[r]</code>，同步查询两棵树，并对查询到的内容相减便是<code>l..r</code>中该范围内的数据(以数字出现字数为关键词)。</p>
+<p>注意分清楚查询区间的l r 与两颗线段树l r（t1 t2)的区别。</p>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 200100</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m,size_disc;					 	<span class="comment">//size_disc:离散化后的长度;						</span></span><br><span class="line"><span class="keyword">int</span> n_init[MAXN],n_disc[MAXN];		 	<span class="comment">//n_init:原始数组;	n_disc:离散化数组</span></span><br><span class="line"><span class="keyword">int</span> rt[MAXN],lc[MAXN&lt;&lt;<span class="number">5</span>],rc[MAXN&lt;&lt;<span class="number">5</span>],sum[MAXN&lt;&lt;<span class="number">5</span>];	<span class="comment">//rt:不同版本的根节点; lc/rc:左儿子右儿子（公用）;	sum:和（公用）</span></span><br><span class="line"><span class="keyword">int</span> node_cnt,pnt_disc;				 	<span class="comment">//node总计数;	pnt_disc: A中数字对应在B中的值</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> &amp;last_node, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">	last_node = ++node_cnt;</span><br><span class="line">	sum[last_node]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(l == r) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	build(lc[last_node],l,mid);</span><br><span class="line">	build(rc[last_node],mid+<span class="number">1</span>,r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> pre_rt, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> new_rt= ++node_cnt;</span><br><span class="line"></span><br><span class="line">	lc[new_rt]=lc[pre_rt];</span><br><span class="line">	rc[new_rt]=rc[pre_rt];</span><br><span class="line">	sum[new_rt]=sum[pre_rt]+<span class="number">1</span>;			<span class="comment">//修改了这个节点，这个节点个数肯定+1</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> mid = (l+r)/<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span>(l==r) <span class="keyword">return</span> new_rt;</span><br><span class="line">	<span class="keyword">if</span>(mid&gt;=pnt_disc) lc[new_rt]=modify(lc[new_rt],l,mid);		<span class="comment">//现在的new lc/rc 与 pre lc/rc 完全等价</span></span><br><span class="line">				<span class="keyword">else</span>  rc[new_rt]=modify(rc[new_rt],mid+<span class="number">1</span>,r);</span><br><span class="line">	<span class="keyword">return</span> new_rt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> rt1,<span class="keyword">int</span> rt2,<span class="keyword">int</span> k,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;				<span class="comment">//rt1 rt2是旧版本与新版本两个规模完全相同的线段树;	k是期望达到值; l/r是在两颗树上完全同步的查询区间</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(l==r)&#123;</span><br><span class="line">		<span class="keyword">return</span> l;			<span class="comment">//返回当前所在的修改后的数组的为止</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> mid=(l+r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> temp=sum[lc[rt2]]-sum[lc[rt1]];</span><br><span class="line">	<span class="keyword">int</span> ans;</span><br><span class="line">	<span class="keyword">if</span>(temp&gt;=k) ans=query(lc[rt1],lc[rt2],k,l,mid);		<span class="comment">//由于是权值线段树记录的是点的个数	</span></span><br><span class="line">		<span class="keyword">else</span> ans=query(rc[rt1],rc[rt2],k-temp,mid+<span class="number">1</span>,r);	<span class="comment">//这里要减去前面（区间内）所有的数的个数,剩下的是在rc中要查询的个数nihao</span></span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n_init[i]);</span><br><span class="line">		n_disc[i]=n_init[i];</span><br><span class="line">	&#125;</span><br><span class="line">	sort(n_disc+<span class="number">1</span>,n_disc+n+<span class="number">1</span>);				<span class="comment">//先排序再进行离散化</span></span><br><span class="line">	size_disc=unique(n_disc+<span class="number">1</span>,n_disc+n+<span class="number">1</span>)-n_disc<span class="number">-1</span>;<span class="comment">//由于从1开始的数组故都要+(-)1;	unique为离散化函数</span></span><br><span class="line">	<span class="comment">//for(int i=1; i&lt;=size_disc; i++) cout&lt;&lt;n_disc[i]&lt;&lt;" ";</span></span><br><span class="line">	<span class="comment">//1 1 3 3 5 5 5 8 10 10 离散化后是 1 3 5 8 10</span></span><br><span class="line">	node_cnt=<span class="number">0</span>;</span><br><span class="line">	build(rt[<span class="number">0</span>] , <span class="number">1</span> , size_disc);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)&#123;</span><br><span class="line">		pnt_disc = lower_bound(n_disc+<span class="number">1</span>, n_disc+size_disc+<span class="number">1</span>, n_init[i]) - n_disc;		<span class="comment">//这个回合要modify的值，回合内不变</span></span><br><span class="line">		<span class="comment">//以上序列对应值: 1 1 2 2 3 3 3 4 5 5 </span></span><br><span class="line">		rt[i]=modify(rt[i<span class="number">-1</span>],<span class="number">1</span>,size_disc);		<span class="comment">//在上一个版本的基础上修改</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;m; i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> l,r,k;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;l,&amp;r,&amp;k);</span><br><span class="line">		l--;</span><br><span class="line">		<span class="keyword">int</span> ans=query(rt[l],rt[r],k,<span class="number">1</span>,size_disc);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,n_disc[ans]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法竞赛/" rel="tag"># 算法竞赛</a>
+          
+            <a href="/tags/模板/" rel="tag"># 模板</a>
+          
+            <a href="/tags/Luogu/" rel="tag"># Luogu</a>
+          
+            <a href="/tags/持久化/" rel="tag"># 持久化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/note07/" rel="next" title="笔记07-小Z的袜子「洛谷 P1494 / 国家集训队」">
+                <i class="fa fa-chevron-left"></i> 笔记07-小Z的袜子「洛谷 P1494 / 国家集训队」
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/note15/" rel="prev" title="笔记15-关路灯 「洛谷 P1220」">
+                笔记15-关路灯 「洛谷 P1220」 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://gitee.com/yfli03/YfLi03.github.io/raw/master/Pic/tx3.jpg" alt="YfLi">
+            
+              <p class="site-author-name" itemprop="name">YfLi</p>
+              <p class="site-description motion-element" itemprop="description">EFZer / OIer / Getty(iStock)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#模板"><span class="nav-number">1.</span> <span class="nav-text">模板</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可持久化线段树"><span class="nav-number">2.</span> <span class="nav-text">可持久化线段树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">2.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码："><span class="nav-number">2.3.</span> <span class="nav-text">代码：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YfLi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'h6eihcnnDRC2SFJtkL2jmuVA-MdYXbMMI',
+        appKey: 'rRQTt9nuFUNpC1y3PlStsqiX',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
