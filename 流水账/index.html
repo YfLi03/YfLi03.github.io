@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="算法竞赛,Luogu,模板,exgcd(扩展欧几里得),">
+  <meta name="keywords" content="Thoughts,日志,">
 
 
 
@@ -79,21 +79,18 @@
 
 
 
-<meta name="description" content="十分简单，却又容易忘记、难以应用的算法来源/网址：luogu">
-<meta name="keywords" content="算法竞赛,Luogu,模板,exgcd(扩展欧几里得)">
+<meta name="description" content="一些杂乱的随笔.">
+<meta name="keywords" content="Thoughts,日志">
 <meta property="og:type" content="article">
-<meta property="og:title" content="笔记05-Exgcd求逆元「洛谷 P1082 &#x2F; 模板」">
-<meta property="og:url" content="http://yfli03.github.io/note05/index.html">
+<meta property="og:title" content="Series">
+<meta property="og:url" content="http://yfli03.github.io/流水账/index.html">
 <meta property="og:site_name" content="YfLi&#39;s blog">
-<meta property="og:description" content="十分简单，却又容易忘记、难以应用的算法来源/网址：luogu">
+<meta property="og:description" content="一些杂乱的随笔.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://yfli03.github.io/Pic/lgnote0001.PNG">
-<meta property="og:image" content="https://yfli03.github.io/Pic/lgnote0002.PNG">
-<meta property="og:updated_time" content="2020-02-03T08:51:43.617Z">
+<meta property="og:updated_time" content="2020-03-20T14:32:46.746Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔记05-Exgcd求逆元「洛谷 P1082 &#x2F; 模板」">
-<meta name="twitter:description" content="十分简单，却又容易忘记、难以应用的算法来源/网址：luogu">
-<meta name="twitter:image" content="https://yfli03.github.io/Pic/lgnote0001.PNG">
+<meta name="twitter:title" content="Series">
+<meta name="twitter:description" content="一些杂乱的随笔.">
 
 
 
@@ -123,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yfli03.github.io/note05/">
+  <link rel="canonical" href="http://yfli03.github.io/流水账/">
 
 
 
 
 
-  <title>笔记05-Exgcd求逆元「洛谷 P1082 / 模板」 | YfLi's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Series | YfLi's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -256,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yfli03.github.io/note05/">
+    <link itemprop="mainEntityOfPage" href="http://yfli03.github.io/流水账/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YfLi">
@@ -273,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">笔记05-Exgcd求逆元「洛谷 P1082 / 模板」</h1>
+          <h1 class="post-title" itemprop="name headline">Series</h1>
         
 
         <div class="post-meta">
@@ -285,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-25T12:49:31+08:00">
-                2018-08-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2333-03-05T23:33:33+08:00">
+                2333-03-05
               </time>
             
 
@@ -304,8 +301,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/note05/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/note05/" itemprop="commentCount"></span>
+                <a href="/流水账/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/流水账/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -333,19 +330,68 @@
       
 
       
-        <p>十分简单，却又容易忘记、难以应用的算法<br>来源/网址：<a href="https://www.luogu.org/problemnew/show/P1082" target="_blank" rel="noopener">luogu</a></p>
+        <p>一些杂乱的随笔.</p>
 <a id="more"></a>
+<p>[War]</p>
 <hr>
-<h1 id="Exgcd求逆元"><a href="#Exgcd求逆元" class="headerlink" title="Exgcd求逆元"></a>Exgcd求逆元</h1><h2 id="题面描述等略过"><a href="#题面描述等略过" class="headerlink" title="题面描述等略过"></a>题面描述等略过</h2><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>既然是扩展欧几里得，那么当然和欧几里得有关。先复习一下欧几里得：<code>gcd(a,b)=gcd(b,a%b)</code>十分简单。</p>
-<p>Exgcd解决的是这样一个问题：求<code>ax+by=gcd(a,b)</code>，解法/证明如下：</p>
-<p><img src="https://yfli03.github.io/Pic/lgnote0001.PNG" alt="摘自洛谷讲义"></p>
-<p> <em>（然后通过<code>x=x+a/gcd(a,b)，y=y-b/gcd(a,b)</code>即可得到通解）</em> </p>
-<p> 那么这与求逆元有什么关系呢？所以可以写成 <code>ax-1=bt</code>,即<code>ax-bt=1</code>，而原式有解的条件就是 <code>(a,b)=1</code> 所以式子可以化成<code>ax+b(-t)=gcd(a,b)</code>，仍是求这个<code>x</code>。</p>
-<p>直接带入exgcd很容易得到<code>x</code>的值，但是要注意<code>x</code>不一定是最小的，甚至不一定是正的，所以<code>x=(x+b)%b</code> </p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m,mo,no;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(b==<span class="number">0</span>)&#123;</span><br><span class="line">		x=<span class="number">1</span>;</span><br><span class="line">		y=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> a;							<span class="comment">//这里return的就是Gcd且不再变化</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> r=exgcd(b,a%b,x,y);</span><br><span class="line">	<span class="keyword">int</span> t=x;</span><br><span class="line"></span><br><span class="line">	x=y;</span><br><span class="line">	y=t-a/b*y;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">	exgcd(n,m,no,mo);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,no);</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="拓展：线性算法求从1-n的逆元"><a href="#拓展：线性算法求从1-n的逆元" class="headerlink" title="拓展：线性算法求从1-n的逆元"></a>拓展：线性算法求从1-n的逆元</h2><p><img src="https://yfli03.github.io/Pic/lgnote0002.PNG" alt="摘自zjp的题解"></p>
-<p>注意，乘以的<code>i^(-1)</code> <code>r^(-1)</code>为 <code>i`</code> r` 的逆元</p>
-<p><em>考场上? 你记不得的，现推吧</em> </p>
+<p>[ACI]</p>
+<hr>
+<h4 id="纸飞机"><a href="#纸飞机" class="headerlink" title="[纸飞机]"></a>[纸飞机]</h4><p>这篇本想在19.11.22写的，然而那个晚上我出去骑车了. 正好也可以蹭一波热点(?)</p>
+<p>小学到高中，班主任们都有一个共同点：讨厌纸飞机.</p>
+<p>或许是因为扔纸飞机的学生在走廊里大吵大闹，将其飞往檐下、树上，以洁白沾染了校园；或许曾有那一只纸飞机放弃了自由，飞入校长室的窗户…</p>
+<p>这里有个小插曲。还未入学时，在efz官网上看到过一行文字——第二届纸飞机节，那以后，我便期待于这个”毫无意义”的活动，却始终没有等来.</p>
+<p>总之，大人们憎恨纸飞机，孩子却钟情于纸飞机的无拘无束、自由翱翔。纸飞机也因此成为了”反抗权威”的代表，正如《放牛班的春天》中那样.</p>
+<p>到这里，应该有不少人想到了，那款以纸飞机为图标的软件——shadows*cks (ss). </p>
+<p>时至今日，随着gfw的不断增强、不同版本的相继停止维护，ss早已丧失了近乎所有活力。然而就在几年前，ss的出现让每个人都能轻松地搭建自己的隧道，以更快的速度访问更广的内容，也不必忍受轮子的广告；自始至终，它都是一个开放、开源的项目，正体现了所谓互联网开放精神。</p>
+<p>可悲的是，不少人用它、它们来做极其无聊的事情；更可悲的是，越来越多人开始以站不住脚的理由来辩护…</p>
+<p>最后，那位have some tea的原作者，祝你安好.</p>
+<hr>
+<h4 id="［翻初三做的高三一模卷有感］"><a href="#［翻初三做的高三一模卷有感］" class="headerlink" title="［翻初三做的高三一模卷有感］"></a>［翻初三做的高三一模卷有感］</h4><p>考小学算是人生的一个巅峰. 一轮一轮下来, 该录的都录了, 除了逸夫.</p>
+<p>原本要去的也不是世外——都已定下来了(似乎忘了是哪个)——爸妈又因为找不到弄堂深处的世外小学而差点直接放弃（笑）不过最后还是阴差阳错地来到了那里.</p>
+<p>小升初压力很小, 因为直到五年级时我才知道, 原来还有个“华育中学”. 不厉害的我自然是没考, 只享受快乐的毕业课程去了. </p>
+<p>一模前夕, 先后经历了信息竞赛、新知杯、上中面试三连爆.</p>
+<p>是怎么在在如此大的压力之下放弃ff的呢？或许是因为某位放弃上中同学的给我做了榜样；又或是因为信息竞赛早就与efz的食堂结了缘… 总之, 影响我做出决定的总是一些微不足道的小事.</p>
+<p>后面的事情大概就是325吧…说来华二的那张单子简直就是欺诈, 还有选错倒扣分… 可以说是心中排行第二的阴影…</p>
+<p>流水账写到这里 我也不知道自己想说什么了.</p>
+<p>就很喜欢初中与初中时的自己吧</p>
+<p>坚定、勤奋、热心、害羞（雾）</p>
+<p>做了完全相同的一模甚至比现在好.</p>
+<p>当然一路走下来, 不论是做出的选择、没做到的事情也都不会觉得遗憾. (人生)本就由无数巧合与错过组成, 对过去的自己发牢骚也不会有什么好处.</p>
+<hr>
+<h4 id="［-无-病-呻-吟-］"><a href="#［-无-病-呻-吟-］" class="headerlink" title="［ 无 病 呻 吟 ］"></a>［ 无 病 呻 吟 ］</h4><p>在网上找些东西.</p>
+<p>点进一位大佬的小站, 翻了翻文章, </p>
+<p>感到些许亲切——</p>
+<p>他也喜欢拍照, 相机从A6300换成了A7III.</p>
+<p>他在用Walkman, 和我一样, 想着把云音乐的歌单导进去. </p>
+<p>他曾学过算法竞赛, 看上去没出什么太好的成绩.</p>
+<p>他还开过MC服务器, 折腾过Linux, 有一台老款Surface</p>
+<p>……</p>
+<p>我惊讶于我们之间如此之多的共同之处.</p>
+<p>兴奋、欣喜.</p>
+<p>去..要个联系方式吧?</p>
+<p>小心翼翼地敲打键盘,</p>
+<p>整理着自己凌乱的言语.</p>
+<p>光标不停地闪烁着.</p>
+<p>嗯….</p>
+<p>渐渐地 停下了.</p>
+<p>他的博客是拿什么平台搭建的？</p>
+<p>——不知道. 或许是自己写的吧.</p>
+<p>他现在几岁, 在哪里, 在做什么？</p>
+<p>——应该已经毕业多年了吧. 阿里的人在评论区挖他, 没有回应.</p>
+<p>我呢？</p>
+<p>——普通高中生.</p>
+<p>他会回复我吗？还是会直接忽视？</p>
+<p>加了又能怎么样？ 换友链？</p>
+<p>刹那间 怅然若失.</p>
+<p>删光了所有的内容,</p>
+<p>最终, 我只是留下了一句</p>
+<p>“谢谢大佬 太强啦”.</p>
+<p>—————————</p>
+<p>并不是想讨论互联网有没有拉近人们之间的距离之类的话题.</p>
+<p>只是, 我已经错过了不知多少（人）.</p>
+<p>有共同爱好的、喜欢的，又或是欣赏钦佩的.</p>
+<p>不会聊天却指望用寥寥数语打动别人.</p>
+<p>唉.</p>
 
       
     </div>
@@ -363,13 +409,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法竞赛/" rel="tag"># 算法竞赛</a>
+            <a href="/tags/Thoughts/" rel="tag"># Thoughts</a>
           
-            <a href="/tags/Luogu/" rel="tag"># Luogu</a>
-          
-            <a href="/tags/模板/" rel="tag"># 模板</a>
-          
-            <a href="/tags/exgcd-扩展欧几里得/" rel="tag"># exgcd(扩展欧几里得)</a>
+            <a href="/tags/日志/" rel="tag"># 日志</a>
           
         </div>
       
@@ -382,8 +424,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/note04/" rel="next" title="笔记04-传达不到的小岛「15ma Contest H」">
-                <i class="fa fa-chevron-left"></i> 笔记04-传达不到的小岛「15ma Contest H」
+              <a href="/PicSky/" rel="next" title="「天空」">
+                <i class="fa fa-chevron-left"></i> 「天空」
               </a>
             
           </div>
@@ -391,10 +433,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/note06/" rel="prev" title="笔记06-货车运输「洛谷 P1967」">
-                笔记06-货车运输「洛谷 P1967」 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -522,7 +560,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Exgcd求逆元"><span class="nav-number">1.</span> <span class="nav-text">Exgcd求逆元</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题面描述等略过"><span class="nav-number">1.1.</span> <span class="nav-text">题面描述等略过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓展：线性算法求从1-n的逆元"><span class="nav-number">1.4.</span> <span class="nav-text">拓展：线性算法求从1-n的逆元</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#纸飞机"><span class="nav-number">1.</span> <span class="nav-text">[纸飞机]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#［翻初三做的高三一模卷有感］"><span class="nav-number">2.</span> <span class="nav-text">［翻初三做的高三一模卷有感］</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#［-无-病-呻-吟-］"><span class="nav-number">3.</span> <span class="nav-text">［ 无 病 呻 吟 ］</span></a></li></ol></div>
             
 
           </div>
