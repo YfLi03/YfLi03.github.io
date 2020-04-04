@@ -2,37 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yfli03.github.io/%E6%B5%81%E6%B0%B4%E8%B4%A6/</loc>
+    <loc>http://yfli03.github.io/t_video/</loc>
     
-    <lastmod>2020-03-20T14:32:46.746Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yfli03.github.io/PicSky/</loc>
-    
-    <lastmod>2020-03-11T08:14:48.054Z</lastmod>
+    <lastmod>2020-04-04T04:08:54.815Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yfli03.github.io/PicStars_W/</loc>
+    <loc>http://yfli03.github.io/diary01/</loc>
     
-    <lastmod>2020-02-27T03:26:55.305Z</lastmod>
+    <lastmod>2020-04-04T03:43:10.255Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yfli03.github.io/PicStars/</loc>
+    <loc>http://yfli03.github.io/t_shattered/</loc>
     
-    <lastmod>2020-02-27T03:24:20.228Z</lastmod>
+    <lastmod>2020-04-04T03:32:44.229Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yfli03.github.io/t_memoranda/</loc>
+    
+    <lastmod>2020-04-04T03:30:42.155Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yfli03.github.io/t_series/</loc>
+    
+    <lastmod>2020-04-04T02:46:41.444Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yfli03.github.io/Thoughts03/</loc>
     
-    <lastmod>2020-02-14T14:45:44.870Z</lastmod>
+    <lastmod>2020-03-20T14:36:30.674Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yfli03.github.io/picStars/</loc>
+    
+    <lastmod>2020-03-20T14:35:47.899Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yfli03.github.io/picSky/</loc>
+    
+    <lastmod>2020-03-20T14:35:32.372Z</lastmod>
     
   </url>
   
@@ -44,35 +65,14 @@
   </url>
   
   <url>
-    <loc>http://yfli03.github.io/Movie01/</loc>
-    
-    <lastmod>2020-02-14T11:13:41.921Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yfli03.github.io/Thoughts05/</loc>
-    
-    <lastmod>2020-02-14T11:13:17.043Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yfli03.github.io/Thoughts04/</loc>
-    
-    <lastmod>2020-02-14T11:12:59.855Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yfli03.github.io/PicByPhone/</loc>
+    <loc>http://yfli03.github.io/picPhone/</loc>
     
     <lastmod>2020-02-06T11:56:12.485Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yfli03.github.io/PicturesCollection/</loc>
+    <loc>http://yfli03.github.io/picCollection/</loc>
     
     <lastmod>2020-02-04T10:43:43.488Z</lastmod>
     
@@ -114,13 +114,6 @@
   </url>
   
   <url>
-    <loc>http://yfli03.github.io/diary01/</loc>
-    
-    <lastmod>2020-02-03T11:37:41.106Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yfli03.github.io/note19/</loc>
     
     <lastmod>2020-02-03T10:02:28.212Z</lastmod>
@@ -128,7 +121,7 @@
   </url>
   
   <url>
-    <loc>http://yfli03.github.io/Pic200129/</loc>
+    <loc>http://yfli03.github.io/pic200129/</loc>
     
     <lastmod>2020-02-03T08:57:21.368Z</lastmod>
     
