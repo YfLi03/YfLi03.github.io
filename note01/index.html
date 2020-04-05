@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="算法竞赛,dfs(深度优先搜索),efzoi,">
+  <meta name="keywords" content="算法竞赛,efzoi,dfs(深度优先搜索),">
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="通过dfs搜索路径(一维),并判断有无成环.来源/网址：efzoi">
-<meta name="keywords" content="算法竞赛,dfs(深度优先搜索),efzoi">
+<meta name="keywords" content="算法竞赛,efzoi,dfs(深度优先搜索)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="笔记01-最优字典序「efzoi」">
 <meta property="og:url" content="http://yfli03.github.io/note01/index.html">
@@ -233,10 +233,16 @@
 <script>
     (function(){
         if(''){
-            while (prompt('Password needed.') !== ''){
-                alert('密码错误');
-                
+			var cnt = 0;
+            while (prompt('Password needed.') !== '' && cnt<10){
+                alert('密码错误啦');
+				cnt = cnt + 1;
+				
             }
+			if( cnt >= 10 )
+				{
+					window.location.href="https://yfli03.github.io";
+				}
         }
     })();
 </script>
@@ -379,9 +385,9 @@
           
             <a href="/tags/算法竞赛/" rel="tag"># 算法竞赛</a>
           
-            <a href="/tags/dfs-深度优先搜索/" rel="tag"># dfs(深度优先搜索)</a>
-          
             <a href="/tags/efzoi/" rel="tag"># efzoi</a>
+          
+            <a href="/tags/dfs-深度优先搜索/" rel="tag"># dfs(深度优先搜索)</a>
           
         </div>
       
@@ -400,8 +406,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/note02/" rel="prev" title="笔记02-Zebra Judging「15ma Contest B」">
-                笔记02-Zebra Judging「15ma Contest B」 <i class="fa fa-chevron-right"></i>
+              <a href="/diary01/" rel="prev" title="日记01">
+                日记01 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
