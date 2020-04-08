@@ -230,8 +230,10 @@
 <script>
     (function(){
         if(''){
+			var hint = 'Password Needed.\rHint: ' + '';
+			
 			var cnt = 0;
-            while (prompt('Password needed.') !== '' && cnt<10){
+            while (prompt(hint) !== '' && cnt<10){
                 alert('密码错误啦');
 				cnt = cnt + 1;
 				

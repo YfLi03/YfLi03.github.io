@@ -88,7 +88,7 @@
 <meta property="og:description" content="写在进入efz以前.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fudnv7fwzaj30u00dat9j.jpg">
-<meta property="og:updated_time" content="2020-04-04T03:43:10.255Z">
+<meta property="og:updated_time" content="2020-04-07T10:00:13.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日记01">
 <meta name="twitter:description" content="写在进入efz以前.">
@@ -235,8 +235,10 @@
 <script>
     (function(){
         if('calc.'){
+			var hint = 'Password Needed.\rHint: ' + 'a song.';
+			
 			var cnt = 0;
-            while (prompt('Password needed.') !== 'calc.' && cnt<10){
+            while (prompt(hint) !== 'calc.' && cnt<10){
                 alert('密码错误啦');
 				cnt = cnt + 1;
 				
