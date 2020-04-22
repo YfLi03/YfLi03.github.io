@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yfli03.github.io/j_swiss/</loc>
+    <lastmod>2020-04-22</lastmod>
+  </url>  <url>
     <loc>http://yfli03.github.io/picFC001/</loc>
-    <lastmod>2020-04-17</lastmod>
+    <lastmod>2020-04-19</lastmod>
   </url>  <url>
     <loc>http://yfli03.github.io/picCollection/</loc>
     <lastmod>2020-04-17</lastmod>
@@ -21,9 +24,6 @@
   </url>  <url>
     <loc>http://yfli03.github.io/t_memoranda/</loc>
     <lastmod>2020-04-07</lastmod>
-  </url>  <url>
-    <loc>http://yfli03.github.io/t_video/</loc>
-    <lastmod>2020-04-04</lastmod>
   </url>  <url>
     <loc>http://yfli03.github.io/Thoughts03/</loc>
     <lastmod>2020-03-20</lastmod>
