@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yfli03.github.io/memS3/</loc>
+    
+    <lastmod>2020-10-17T12:53:51.241Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yfli03.github.io/t_series/</loc>
+    
+    <lastmod>2020-10-17T12:44:31.856Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yfli03.github.io/memS3pre/</loc>
+    
+    <lastmod>2020-08-30T07:57:11.866Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yfli03.github.io/t_shattered/</loc>
+    
+    <lastmod>2020-07-25T06:12:42.878Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yfli03.github.io/memGeo/</loc>
     
-    <lastmod>2020-07-10T15:45:40.452Z</lastmod>
+    <lastmod>2020-07-10T15:46:22.471Z</lastmod>
     
   </url>
   
@@ -68,20 +96,6 @@
     <loc>http://yfli03.github.io/Thoughts00/</loc>
     
     <lastmod>2020-04-24T09:48:24.313Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yfli03.github.io/t_shattered/</loc>
-    
-    <lastmod>2020-04-24T09:48:17.136Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yfli03.github.io/t_series/</loc>
-    
-    <lastmod>2020-04-24T09:48:08.941Z</lastmod>
     
   </url>
   
